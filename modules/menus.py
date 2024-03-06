@@ -1,6 +1,8 @@
 import modules.validaciones as v
-import modules.ejer1conversion as c
+import modules.ejer1Conversion as c
 import modules.ejer2Usuarios as u
+import modules.ejer3Tienda as t
+
 
 def MenuConversion():
     
@@ -40,7 +42,6 @@ def MenuUsuarios():
         """
         print(opciones)
         opc=v.valInt()
-        
         if opc==1:
             u.GestionUsuarios()
         elif opc==2:
@@ -48,6 +49,28 @@ def MenuUsuarios():
             bandera=False
         else:
             print("Opcion incorrecta")
+
+def MenuTienda():
+    
+    bandera=True
+    while bandera:
+        v.os.system("clear")
+        titulo=[["|      GESTION DE TIENDA      |"]]
+        print(v.tabulate(titulo,tablefmt="heavy_grid"))
+        opciones="""
+    1. AÑADIR PRODUCTO
+    2. SALIR
+        """
+        print(opciones)
+        opc=v.valInt()
+        if opc==1:
+            t.GestorTienda()
+        elif opc==2:
+            print("Bye")
+            bandera=False
+        else:
+            print("Opcion incorrecta")      
+    
 
 def MenuPrincipal():
     v.os.system("clear")
@@ -71,7 +94,7 @@ def MenuPrincipal():
         elif opc==2:
             MenuUsuarios()
         elif opc==3:
-            pass
+            MenuTienda()
         elif opc==4:
             pass
         elif opc==5:

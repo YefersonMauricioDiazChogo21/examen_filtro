@@ -3,7 +3,7 @@ import os
 
 def valInt():
     try: 
-        x=int(input(">>"))
+        x=int(input(">> "))
         return x
     except ValueError:
         print("Solo se aceptan numeros, ingrese nuevamente")
@@ -11,7 +11,7 @@ def valInt():
     
 def valFloat():
     try: 
-        x=float(input(">>"))
+        x=float(input(">> "))
         return x
     except ValueError:
         print("Solo se aceptan numeros, ingrese nuevamente")
