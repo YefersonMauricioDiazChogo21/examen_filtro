@@ -60,7 +60,11 @@ def CalcularNomina():
         "Descuento_X_Cafeteria":descuentoxCafeteria,
         "Total_A_Pagar":totalPago
     }
-    Nomina["colillas"].update({id:ColillaPago})
+    existe=v.valExist(Nomina,id)
+    if existe:
+        Nomina["colillas"][id].update({mes:ColillaPago})
+    else:
+        Nomina["colillas"].update({id:{mes:ColillaPago}})
     core.UpdateFile(nameFile,Nomina)
 
 def ColillasPago():
@@ -71,13 +75,17 @@ def ColillasPago():
     Nomina=core.ReadFile(nameFile)
     print("Ingrese el Id del Empleado")
     id=v.valKey(Nomina)
+    print("Ingrese el mes del cual desea buscar la colilla")
+    nameMes=v.valKey2(Nomina,id)
     for i in Nomina["colillas"]:
         if id==i:
-            colilla=[]
-            for i in Nomina["colillas"][id]:
-                lista=[i,Nomina["colillas"][id][i]]
-                colilla.append(lista)
-            break
+            for j in Nomina["colillas"][i]:
+                if j==nameMes:
+                    colilla=[]
+                    for k in Nomina["colillas"][i][j]:
+                        lista=[k,Nomina["colillas"][i][j][k]]
+                        colilla.append(lista)
+                    break
     print(v.tabulate(colilla,headers=["COLILLA",id],tablefmt="rounded_grid"))
     pausa=input("Presiona una tecla para continuar")
 
@@ -89,7 +97,8 @@ def TotalNominasPagas():
     Nomina=core.ReadFile(nameFile)
     TotalPagoNominas=0
     for i in Nomina["colillas"]:
-        TotalPagoNominas+=Nomina["colillas"][i]["Total_A_Pagar"]
+        for j in Nomina["colillas"][i]:
+            TotalPagoNominas+=Nomina["colillas"][i][j]["Total_A_Pagar"]
     print(f"El total pagado por concepto nominas es de {TotalPagoNominas}")
     pausa=input("Presiona una tecla para continuar")
         

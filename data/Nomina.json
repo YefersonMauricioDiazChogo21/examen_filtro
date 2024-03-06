@@ -9,13 +9,24 @@
     },
     "colillas": {
         "1005539417": {
-            "Mes_Pagado": "Marzo",
-            "Fecha_Pago": "24/3/2024",
-            "Sueldo_Base": 300000,
-            "Valor_Total_Extras": 55000,
-            "Cuota_Prestamo": 2000,
-            "Descuento_X_Cafeteria": 5000,
-            "Total_A_Pagar": 348000.0
+            "Marzo": {
+                "Mes_Pagado": "Marzo",
+                "Fecha_Pago": "3/3/2024",
+                "Sueldo_Base": 300000,
+                "Valor_Total_Extras": 82500,
+                "Cuota_Prestamo": 2000,
+                "Descuento_X_Cafeteria": 10000,
+                "Total_A_Pagar": 370500.0
+            },
+            "Febrero": {
+                "Mes_Pagado": "Febrero",
+                "Fecha_Pago": "2/2/2024",
+                "Sueldo_Base": 300000,
+                "Valor_Total_Extras": 55000,
+                "Cuota_Prestamo": 2000,
+                "Descuento_X_Cafeteria": 5000,
+                "Total_A_Pagar": 348000.0
+            }
         }
     }
 }

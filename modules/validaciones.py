@@ -98,6 +98,51 @@ def valKey(diccionario:dict):
         x=str(input(">> "))
         diccionario["empleados"][x]
         return x
-    except ValueError:
+    except KeyError:
         print("Empleado no existente")
         return valKey(diccionario)
+
+def valKey2(diccionario:dict,id):
+    try:
+        mes=valInt()
+        diccionario["colillas"][id]
+        if mes>12 or mes<0:
+            print("Mes no valido")
+            return valKey2()
+        else:
+            
+            if mes==1:
+                nameMes="Enero"
+            elif mes==2:
+                nameMes="Febrero"
+            elif mes==3:
+                nameMes="Marzo"
+            elif mes==4:
+                nameMes="Abril"
+            elif mes==5:
+                nameMes="Mayo"
+            elif mes==6:
+                nameMes="Junio"
+            elif mes==7:
+                nameMes="Julio"
+            elif mes==8:
+                nameMes="Agosto"
+            elif mes==9:
+                nameMes="Septiembre"
+            elif mes==10:
+                nameMes="Octubre"
+            elif mes==11:
+                nameMes="Noviembre"
+            elif mes==12:
+                nameMes="Diciembre"
+            return nameMes
+    except KeyError:
+        print("Empleado no existente")
+        return valKey(diccionario)
+    
+def valExist(diccionario,llave):
+    try:
+        diccionario["colillas"][llave]
+        return True
+    except KeyError:
+        return False
