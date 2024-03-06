@@ -2,6 +2,7 @@ import modules.validaciones as v
 import modules.ejer1Conversion as c
 import modules.ejer2Usuarios as u
 import modules.ejer3Tienda as t
+import modules.ejer4Nomina as n
 
 
 def MenuConversion():
@@ -70,13 +71,63 @@ def MenuTienda():
             bandera=False
         else:
             print("Opcion incorrecta")      
-    
-
-def MenuPrincipal():
-    v.os.system("clear")
+            
+def MenuReportesNomina():
     bandera=True
     while bandera:
+        v.os.system("clear")
+        titulo=[["|           REPORTES           |"]]
+        print(v.tabulate(titulo,tablefmt="heavy_grid"))
+        opciones="""
+    1. BUSCAR COLILLA DE PAGO
+    2. TOTAL PAGADO POR NOMINA
+    3. SALIR
+        """
+        print(opciones)
+        opc=v.valInt()
+        if opc==1:
+            n.ColillasPago()
+        elif opc==2:
+            n.TotalNominasPagas()
+        elif opc==3:
+            print("Bye")
+            bandera=False
+        else:
+            print("Opcion incorrecta")
+    
+def MenuNomina():
+    
+    bandera=True
+    while bandera:
+        v.os.system("clear")
+        titulo=[["|      GESTOR DE NOMINA      |"]]
+        print(v.tabulate(titulo,tablefmt="heavy_grid"))
+        opciones="""
+    1. AGREGAR EMPLEADOS
+    2. CALCULO DE NOMINA
+    3. REPORTES
+    4. SALIR
+        """
+        print(opciones)
+        opc=v.valInt()
         
+        if opc==1:
+            n.AñadirUsuario()
+        elif opc==2:
+            n.CalcularNomina()
+        elif opc==3:
+            MenuReportesNomina()
+        elif opc==4:
+            print("Bye")
+            bandera=False
+        else:
+            print("Opcion incorrecta")
+
+def MenuPrincipal():
+    
+    bandera=True
+    while bandera:
+        v.os.system("clear")
         titulo=[["|      EXAMEN FINAL DE PYTHON      |"]]
         print(v.tabulate(titulo,tablefmt="heavy_grid"))
         opciones="""
@@ -96,7 +147,7 @@ def MenuPrincipal():
         elif opc==3:
             MenuTienda()
         elif opc==4:
-            pass
+            MenuNomina()
         elif opc==5:
             print("Bye")
             bandera=False

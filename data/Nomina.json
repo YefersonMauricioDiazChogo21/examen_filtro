@@ -1,0 +1,21 @@
+{
+    "empleados": {
+        "1005539417": {
+            "id": "1005539417",
+            "nombre": "Mauricio",
+            "cargo": "Jefe IT",
+            "salario": 300000
+        }
+    },
+    "colillas": {
+        "1005539417": {
+            "Mes_Pagado": "Marzo",
+            "Fecha_Pago": "24/3/2024",
+            "Sueldo_Base": 300000,
+            "Valor_Total_Extras": 55000,
+            "Cuota_Prestamo": 2000,
+            "Descuento_X_Cafeteria": 5000,
+            "Total_A_Pagar": 348000.0
+        }
+    }
+}

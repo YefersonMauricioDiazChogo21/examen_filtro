@@ -5,6 +5,7 @@ nameFile="Tienda.json"
 Almacen={}
 
 def GestorTienda():
+    v.os.system("clear")
     core.CheckFile(nameFile,Almacen)
     Tienda=core.ReadFile(nameFile)
     
@@ -18,7 +19,7 @@ def GestorTienda():
     stockmax=v.valInt()
     
     
-    producto={
+    Producto={
         "id":id,
         "nombre":nombre,
         "valorUnitario":valorUnitario,
@@ -26,6 +27,6 @@ def GestorTienda():
         "stockmax":stockmax,
         "stock":0
     }
-    Tienda.update({id:producto})
+    Tienda.update({id:Producto})
     core.UpdateFile(nameFile,Tienda)
     pausa=input("Presiona una tecla para continuar")
